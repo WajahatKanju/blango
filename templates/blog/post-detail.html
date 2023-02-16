@@ -1,5 +1,6 @@
 {% extends "_base.html" %}
 {% load blog_extras %}
+{% load cache %}
 
 {% block content %}
   <div class="bg-secondary p-4 rounded mb-5">
@@ -20,7 +21,9 @@
 
       {% row %}
       {% col %}
-        {% recent_posts post %}
+        {% cache 3600 recent_posts %}
+          {% recent_posts post %}
+        {% endcache %}
       {% endcol %}
     {% endrow%}
 {% endblock  %}

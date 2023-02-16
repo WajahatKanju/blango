@@ -1,13 +1,18 @@
 import logging 
 
 from django.shortcuts import render, get_object_or_404, redirect
-from blog.models import Post
 from django.utils import timezone
+from django.views.decorators.cache import cache_page
+from django.views.decorators.vary import vary_on_headers
+
+from blog.models import Post
 from .forms import CommentForm
 
 logger = logging.getLogger(__name__)
 
 
+@cache_page(300)
+@vary_on_headers('Cookie')
 def index(request):
   posts = Post.objects.filter(published_at__lte=timezone.now())
   logger.debug("Got %d posts", len(posts))
