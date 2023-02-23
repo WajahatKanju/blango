@@ -27,6 +27,8 @@ class Dev(Configuration):
   SESSION_COOKIE_SECURE = True
   CSRF_COOKIE_SAMESITE = 'None'
   SESSION_COOKIE_SAMESITE = 'None'
+  ACCOUNT_ACTIVATION_DAYS = 7
+  EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
   # Application definition
 
   INSTALLED_APPS = [
