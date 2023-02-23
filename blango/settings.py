@@ -43,7 +43,8 @@ class Dev(Configuration):
       'crispy_bootstrap5',
 
       # Local APPS
-      'blog.apps.BlogConfig'
+      'blog.apps.BlogConfig',
+      'blango_auth.apps.BlangoAuthConfig'
   ]
   PASSWORD_HASHERS = [
       'django.contrib.auth.hashers.Argon2PasswordHasher',
@@ -181,6 +182,7 @@ class Dev(Configuration):
       }
   }
 
+  AUTH_USER_MODEL = "blango_auth.User"
 
 
 class Prod(Dev):
