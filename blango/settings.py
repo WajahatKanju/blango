@@ -44,6 +44,7 @@ class Dev(Configuration):
       'django.contrib.messages',
       'django.contrib.sites',
       'django.contrib.staticfiles',
+      'rest_framework',
 
       # Third Party 
       'allauth',
@@ -53,6 +54,7 @@ class Dev(Configuration):
       "debug_toolbar",
       'crispy_forms',
       'crispy_bootstrap5',
+      
 
       # Local APPS
       'blog.apps.BlogConfig',
