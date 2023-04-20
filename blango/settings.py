@@ -45,6 +45,7 @@ class Dev(Configuration):
       'django.contrib.sites',
       'django.contrib.staticfiles',
       'rest_framework',
+      'rest_framework.authtoken',
 
       # Third Party 
       'allauth',
@@ -79,6 +80,10 @@ class Dev(Configuration):
       'django.contrib.messages.middleware.MessageMiddleware',
       # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
   ]
+
+ 
+
+
 
   ROOT_URLCONF = 'blango.urls'
 
@@ -131,6 +136,14 @@ class Dev(Configuration):
           'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
       },
   ]
+
+  REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+    ]
+  }
 
 
   # Internationalization
